@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Your Blog</title>
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+<body>
+    <div>
+        <a href="/">Home</a>
+        <a href="/blog">All Posts</a>
+        <a href="/newpost">New Post</a>
+        <a href="/login">Log In</a>
+        <a href="/logout">Log Out</a>
+        <h1>{{heading}}</h1>
+     </div>
+    {% with messages = get_flashed_messages() %}    
+    <ul>
+    {% for message in messages %}
+    <li class="error">{{message}}</li>
+    {% endfor %}
+    </ul>
+    {% endwith %}
+{% block content %}
+{% endblock %}
+</body>
+</html>
